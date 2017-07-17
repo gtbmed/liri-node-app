@@ -13,7 +13,8 @@
   "keywords": [
     "node-spotify-api",
     "request",
-    "twitter"
+    "twitter",
+    "file-system"
   ],
   "author": "John Barson",
   "license": "ISC",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/gtbmed/liri-node-app#readme",
   "dependencies": {
+    "file-system": "^2.2.2",
     "node-spotify-api": "^1.0.5",
     "request": "^2.81.0",
     "twitter": "^1.7.1"
