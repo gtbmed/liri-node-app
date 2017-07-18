@@ -95,13 +95,27 @@ function spotifyThis(songName) {
          }
     })
 }
-    // // Movie - This
-// request("http://www.omdbapi.com/?t=remember+the+titans&y=&plot=short&apikey=40e9cece", function(error, response, body) {
 
-//   // If there were no errors and the response code was 200 (i.e. the request was successful)...
-//   if (!error && response.statusCode === 200) {
-
-//     // Then we print out the imdbRating
-//     console.log("The movie's rating is: " + JSON.parse(body).imdbRating);
-//   }
-// });
+// movieThis
+function movieThis(movieName) {
+    // If the user leaves the entry blank, we give them Mr. Nobody
+    if (movieName == null) {
+        movieName = 'Mr. Nobody';
+    }
+    request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece", function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+        console.log('===========================================');
+        console.log("Title: " + JSON.parse(body).Title);
+        console.log("The move came out in " + JSON.parse(body).Year);
+        console.log("The movie's IMDB rating is: " + JSON.parse(body).imdbRating);
+        console.log("The movie's Rotten Tomatoes rating is: " + JSON.parse(body).Ratings[1].Value);
+        console.log("County the movie was produced in: " + JSON.parse(body).Country);
+        console.log("Movie Language: " + JSON.parse(body).Language);
+        console.log("Plot Synopsis: " + JSON.parse(body).Plot);
+        console.log("Actors: " + JSON.parse(body).Actors);
+        console.log('===========================================');
+    } else {
+        console.log("Error: "+ error)
+    }
+    });
+}
