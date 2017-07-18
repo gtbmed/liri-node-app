@@ -28,12 +28,11 @@ switch (userCommand) {
         break;
 
         case 'do-what-it-says': 
-
+            doIt();
         break;
 
         default:
-        
-
+            console.log("Enter an approved command")
 };
 
 // Functions for the switch case
@@ -91,7 +90,7 @@ function spotifyThis(songName) {
             console.log('=================================');
           }  
         } else {
-            console.log("Error: "+ error)
+            console.log("Error: "+ error);
          }
     })
 }
@@ -115,7 +114,44 @@ function movieThis(movieName) {
         console.log("Actors: " + JSON.parse(body).Actors);
         console.log('===========================================');
     } else {
-        console.log("Error: "+ error)
+        console.log("Error: "+ error);
     }
     });
+}
+
+// Do IT
+function doIt() {
+    // Read the file useing the fs package
+    fs.readFile('random.txt', 'utf8', function(error, data) {
+        if (error) {
+            console.log("Error: "+ error);
+        } else {
+            var stuffToDo = data.split(","); // Split the entries into an array
+            userCommand = stuffToDo[0]; // Turn the first entry into the command
+            userInput = stuffToDo[1]; // Turn the second entry into the input
+            // Runs Switch case.  Is there a way to do this without writing it out again?
+            switch (userCommand) {
+            case 'my-tweets':
+                myTweets();
+            break;
+
+            case 'spotify-this-song':
+                var songName = userInput;            
+                spotifyThis(songName);
+            break;
+
+            case 'movie-this':
+                movieName = userInput;
+                movieThis(movieName);
+            break;
+
+            case 'do-what-it-says': 
+            doIt();
+            break;
+
+            default:
+                console.log("Enter an approved command")
+            }
+        }
+    })
 }
