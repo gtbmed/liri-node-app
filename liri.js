@@ -10,7 +10,7 @@ var userCommand = process.argv[2];
 var userInput = process.argv[3];
 
 
-//Switch Case to switch between functions based upon user input
+// Switch Case to switch between functions based upon user input
 
 switch (userCommand) {
         case 'my-tweets':
