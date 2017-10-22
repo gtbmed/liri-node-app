@@ -12,7 +12,7 @@ In this assignment, you will make LIRI. LIRI is like iPhone's SIRI. However, whi
 2.  Open up the directory containing the app and file liri.js in your favorite console
 
 3. Enter node liri.js followed by one of the following commands:
-  ..* my-tweets
-  ..* spotify-this-song "<insert song name here"
-  ..* movie-this "<insert movie name here>"
-  ..* do-what-it-says
+  * my-tweets
+  * spotify-this-song "<insert song name here"
+  * movie-this "<insert movie name here>"
+  * do-what-it-says
